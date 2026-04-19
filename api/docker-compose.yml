@@ -1,0 +1,8 @@
+name: leasolve-api
+
+services:
+  leasolve.api:
+    image: ${DOCKER_REGISTRY-}leasolveapi
+    build:
+      context: .
+      dockerfile: src/leasolve.API/Dockerfile

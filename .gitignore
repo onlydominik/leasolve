@@ -1,0 +1,39 @@
+# Build output
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# NuGet
+**/packages/
+*.nupkg
+
+# Test & coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local secrets (never commit; copy from api/.env.example)
+.env
+**/.env
+!**/.env.example
+
+# GitHub Copilot — lokalne / osobiste instrukcje dla AI (nie w repo)
+**/.github/copilot-instructions.md

@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+  <Project Path="src/leasolve.API/leasolve.API.csproj" />
+  <Project Path="src/leasolve.Application/leasolve.Application.csproj" Id="84f23a92-4e7b-417c-a9a7-db37c6d8b1ab" />
+  <Project Path="src/leasolve.Domain/leasolve.Domain.csproj" Id="0cb87b26-16ba-4c53-a92d-408f7cd078a2" />
+  <Project Path="src/leasolve.Infrastructure/leasolve.Infrastructure.csproj" Id="7e523a07-595b-49c7-8022-67a4ea5468c4" />
+</Solution>
