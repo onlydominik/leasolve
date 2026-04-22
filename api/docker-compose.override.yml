@@ -10,5 +10,5 @@ services:
       - path: .env
         required: false
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${HOME}/.microsoft/usersecrets:/home/app/.microsoft/usersecrets:ro
+      - ${HOME}/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro

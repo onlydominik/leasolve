@@ -260,3 +260,11 @@ dotnet_diagnostic.CA1515.severity = none
 
 # CA1062: Waliduj argumenty metod publicznych
 dotnet_diagnostic.CA1062.severity = none
+
+dotnet_diagnostic.CA1812.severity = none
+
+# Można komentować kod
+dotnet_diagnostic.S125.severity = none
+
+# CA1848: Logger
+dotnet_diagnostic.CA1848.severity = none

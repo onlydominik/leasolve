@@ -11,4 +11,18 @@ public static class SerilogConfiguration
 
         return services;
     }
+
+    public static IApplicationBuilder UseCustomSerilog(this IApplicationBuilder app)
+    {
+        app.UseSerilogRequestLogging(config =>
+        {
+            config.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+            {
+                diagnosticContext.Set("User-Agent", httpContext.Request.Headers.UserAgent);
+                diagnosticContext.Set("Accept-Language", httpContext.Request.Headers.AcceptLanguage);
+            };
+        });
+
+        return app;
+    }
 }
