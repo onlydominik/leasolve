@@ -268,3 +268,5 @@ dotnet_diagnostic.S125.severity = none
 
 # CA1848: Logger
 dotnet_diagnostic.CA1848.severity = none
+q
+dotnet_diagnostic.CA1716.severity = none
