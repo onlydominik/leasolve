@@ -14,7 +14,7 @@ namespace leasolve.API.Controllers
         [HttpGet(Name = "Environment")]
         public Task<ActionResult<string>> GetEnvironment()
         {
-            string? environment = Environment.GetEnvironmentVariable("ASPNeETCORE_ENVIRONMENT");
+            string? environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             Result<string> result = string.IsNullOrWhiteSpace(environment)
                 ? Result.Failure<string>(SystemError.InvalidEnvironment)
                 : Result.Success(environment);
