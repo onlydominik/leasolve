@@ -16,7 +16,7 @@ namespace leasolve.API.Controllers
         {
             string? environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             Result<string> result = string.IsNullOrWhiteSpace(environment)
-                ? Result.Failure<string>(SystemError.InvalidEnvironment)
+                ? Result.Failure<string>(SystemErrors.InvalidEnvironment)
                 : Result.Success(environment);
 
             return this.MatchAsync(result, ApiResults.Problem);

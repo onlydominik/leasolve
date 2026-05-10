@@ -34,6 +34,7 @@ Thumbs.db
 .env
 **/.env
 !**/.env.example
+api/src/leasolve.API/appsettings.Development.json
 
-# GitHub Copilot — lokalne / osobiste instrukcje dla AI (nie w repo)
+# Copilot
 **/.github/copilot-instructions.md
