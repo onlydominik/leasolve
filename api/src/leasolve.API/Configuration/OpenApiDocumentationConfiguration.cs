@@ -1,5 +1,5 @@
-using leasolve.API.Extensions;
 using leasolve.API.Settings;
+using leasolve.Application.Extensions;
 using Microsoft.Extensions.Options;
 using Scalar.AspNetCore;
 

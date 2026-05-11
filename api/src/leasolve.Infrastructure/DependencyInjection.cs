@@ -1,5 +1,10 @@
-﻿using leasolve.Infrastructure.Abstractions.Settings;
+﻿using leasolve.Application.Extensions;
+using leasolve.Infrastructure.Abstractions.Settings;
 using leasolve.Infrastructure.Database;
+using leasolve.Infrastructure.Identity;
+using leasolve.Infrastructure.Services;
+using leasolve.Infrastructure.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +15,7 @@ namespace leasolve.Infrastructure;
 
 public static class InfrastructureServiceCollectionExtensions
 {
+    // NOTE: in the future we may need to create specific DI files in infra and add them here if it grows
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         var databaseSettingsSection = configuration.GetSection(nameof(DatabaseSettings));
@@ -24,6 +30,16 @@ public static class InfrastructureServiceCollectionExtensions
             options.UseNpgsql(connectionString);
         });
 
+        services.AddIdentity<User, IdentityRole<long>>()
+            .AddEntityFrameworkStores<DatabaseContext>();
+        
+        // Settings
+        services.AddSettings<DataSeederSettings>();
+        
+        // Services
+        // TODO: if many use scrutor
+        services.AddScoped<IDataSeederService, DataSeederService>();
+        
         return services;
     }
 
@@ -37,6 +53,9 @@ public static class InfrastructureServiceCollectionExtensions
         {
             databaseContext.Database.Migrate();
         }
+        
+        var dataSeederService = scope.ServiceProvider.GetRequiredService<IDataSeederService>();
+        dataSeederService.Seed().Wait();
     }
 }
 [SuppressMessage("Major Code Smell", "S2094", Justification = "Marker")]

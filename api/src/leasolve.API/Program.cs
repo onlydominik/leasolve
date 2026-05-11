@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddCustomSerilog();
 
-builder.Services.AddCustomAuthentication();
 builder.Services.AddCustomControllers();
 builder.Services.AddCustomOpenApiDocumentation();
 builder.Services.AddCustomExceptionHandlers();
