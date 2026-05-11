@@ -36,4 +36,7 @@ public sealed class Result<T> : Result
     }
     
     public T Value => IsSuccess ? _value! : throw new InvalidOperationException("Value is not available for failed result.");
+    
+    public static implicit operator Result<T>(T value) => Success(value);
+    public static implicit operator Result<T>(Error error) => Failure<T>(error);
 }

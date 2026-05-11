@@ -268,5 +268,19 @@ dotnet_diagnostic.S125.severity = none
 
 # CA1848: Logger
 dotnet_diagnostic.CA1848.severity = none
-q
+
 dotnet_diagnostic.CA1716.severity = none
+
+dotnet_diagnostic.CA1008.severity = none
+
+# Allow TO DO comments
+dotnet_diagnostic.S1135.severity = none
+
+# CA1720: Nazwy zawierające w sobie typ np. Guid
+dotnet_diagnostic.CA1720.severity  = none
+
+# Allow private constructor in public class
+dotnet_diagnostic.S3453.severity = none
+
+# named alternate for operator overloads not required here.
+dotnet_diagnostic.CA2225.severity = none

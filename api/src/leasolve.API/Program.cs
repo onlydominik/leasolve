@@ -11,12 +11,13 @@ builder.Services.AddCustomOpenApiDocumentation();
 builder.Services.AddCustomExceptionHandlers();
 
 builder.Services.AddApplication();
-builder.Services.AddInfrastructure();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
-app.UseCustomExceptionHandlers();
+app.Services.UseInfrastructure();
 
+app.UseCustomExceptionHandlers();
 app.UseCustomOpenApiDocumentation();
 
 if (!app.Environment.IsDevelopment())

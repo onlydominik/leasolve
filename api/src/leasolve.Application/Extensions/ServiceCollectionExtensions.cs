@@ -1,9 +1,12 @@
 using leasolve.Application.Settings.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace leasolve.API.Extensions;
+namespace leasolve.Application.Extensions;
 
 public static class ServiceCollectionExtensions
 {
+    // TODO: At the moment, AddSettings is in Application,
+    // we need to think about moving it to a higher layer so that the infra and API have access
     public static IServiceCollection AddSettings<TSettings>(this IServiceCollection services)
         where TSettings : class, IValidatedSettings
     {
