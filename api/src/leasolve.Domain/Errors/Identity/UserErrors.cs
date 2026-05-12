@@ -2,6 +2,8 @@ using leasolve.Domain.Abstractions;
 
 namespace leasolve.Domain.Errors.Identity;
 
+// NOTE: to consider whether to make separate files per entity or a file per feature with separate static classes,
+// we'll see how it grows, the change is small
 public static class UserErrors
 {
     public static readonly Error InvalidFirstName = new(ErrorType.Validation, "UserErrors.InvalidFirstName", "First name cannot be empty or whitespace.");

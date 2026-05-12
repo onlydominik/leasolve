@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace leasolve.API.Extensions;
 
-public static class ResultExtensions
+public static class ControllerResultExtensions
 {
     public static Task<ActionResult<T>> MatchAsync<T>(
         this ControllerBase controller,

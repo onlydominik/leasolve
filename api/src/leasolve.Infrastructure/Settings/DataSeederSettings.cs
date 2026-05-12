@@ -1,6 +1,6 @@
 using leasolve.Application.Settings.Interfaces;
 
-namespace leasolve.Infrastructure.Abstractions.Settings;
+namespace leasolve.Infrastructure.Settings;
 
 public sealed class DataSeederSettings : IValidatedSettings
 {
