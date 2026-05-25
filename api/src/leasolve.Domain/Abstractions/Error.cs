@@ -1,6 +1,25 @@
 namespace leasolve.Domain.Abstractions;
 
-public sealed record Error(ErrorType Type, string Code, string Details)
+public sealed class Error
 {
-    public static readonly Error None = new(ErrorType.None, string.Empty, string.Empty);
+    public ErrorType Type { get; }
+    public string Code { get; }
+    public string Details { get; }
+
+    private Error(ErrorType type, string code, string details)
+    {
+        Type = type;
+        Code = code;
+        Details = details;
+    }
+    
+    public static Error Validation(string code, string details) => new(ErrorType.Validation, code, details);
+    
+    public static Error NotFound(string code, string details) => new(ErrorType.NotFound, code, details);
+    
+    public static Error Conflict(string code, string details) => new(ErrorType.Conflict, code, details);
+    
+    public static Error Unauthorized(string code, string details) => new(ErrorType.Unauthorized, code, details);
+    
+    public static Error Forbidden(string code, string details) => new(ErrorType.Forbidden, code, details);
 }

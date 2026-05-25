@@ -284,3 +284,8 @@ dotnet_diagnostic.S3453.severity = none
 
 # named alternate for operator overloads not required here.
 dotnet_diagnostic.CA2225.severity = none
+
+# allow empty interfaces
+dotnet_diagnostic.CA1040.severity = none
+
+dotnet_diagnostic.CA1034.severity= none
