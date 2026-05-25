@@ -1,4 +1,4 @@
-using leasolve.Infrastructure.Identity;
+using leasolve.Domain.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +14,8 @@ public sealed class DatabaseContext : IdentityDbContext<User, IdentityRole<long>
     private DatabaseContext()
     {
     }
+    
+    // If you need to operate on DbSet in application, add DbSet also in IApplicationDbContext
     
     public new DbSet<User> Users { get; set; }
     

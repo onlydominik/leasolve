@@ -1,7 +1,7 @@
 using leasolve.API.Extensions;
 using leasolve.API.Results;
 using leasolve.Domain.Abstractions;
-using leasolve.Domain.Errors;
+using leasolve.Domain.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace leasolve.API.Controllers
@@ -16,7 +16,7 @@ namespace leasolve.API.Controllers
         {
             string? environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             Result<string> result = string.IsNullOrWhiteSpace(environment)
-                ? Result.Failure<string>(SystemErrors.InvalidEnvironment)
+                ? Result.Failure<string>(CoreErrors.System.InvalidEnvironment)
                 : Result.Success(environment);
 
             return this.MatchAsync(result, ApiResults.Problem);

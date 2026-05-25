@@ -1,5 +1,5 @@
+using leasolve.Domain.Identity;
 using leasolve.Infrastructure.Database;
-using leasolve.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 

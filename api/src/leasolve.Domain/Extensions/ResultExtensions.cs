@@ -1,4 +1,4 @@
-using leasolve.Domain.Abstractions;
+/*using leasolve.Domain.Abstractions;
 
 namespace leasolve.Domain.Extensions;
 
@@ -12,4 +12,4 @@ public static class ResultExtensions
             ? binder(result.Value)
             : Result.Failure<TOut>(result.Error);
     }
-}
+}*/

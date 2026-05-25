@@ -1,6 +1,6 @@
+using leasolve.Domain.Identity;
 using leasolve.Domain.Identity.Enums;
 using leasolve.Infrastructure.Settings;
-using leasolve.Infrastructure.Identity;
 using leasolve.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
