@@ -1,5 +1,5 @@
-using leasolve.Domain.Identity;
-using leasolve.Domain.Identity.Enums;
+using leasolve.Domain.Users;
+using leasolve.Domain.Users.Enums;
 using leasolve.Infrastructure.Settings;
 using leasolve.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -69,7 +69,7 @@ internal sealed class DataSeederService : IDataSeederService
             throw new InvalidOperationException($"Failed to create admin user: {userResult.Error.Details}");
 
         var identityResult = await _userManager.CreateAsync(userResult.Value, _dataSeederSettings.AdminUser.Password!);
-
+        //TODO: add role
         if (!identityResult.Succeeded)
             throw new InvalidOperationException($"Failed to create admin user: {identityResult.Errors.First().Description}");
     }

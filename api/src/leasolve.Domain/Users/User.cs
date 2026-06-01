@@ -1,7 +1,7 @@
 ﻿using leasolve.Domain.Abstractions;
 using Microsoft.AspNetCore.Identity;
 
-namespace leasolve.Domain.Identity;
+namespace leasolve.Domain.Users;
 
 public sealed class User : IdentityUser<long>
 {
@@ -18,26 +18,26 @@ public sealed class User : IdentityUser<long>
     public static Result<User> Create(string email, string firstName, string lastName)
     {
         if (string.IsNullOrWhiteSpace(firstName))
-            return IdentityErrors.User.FirstNameEmpty;
+            return UsersErrors.FirstNameEmpty;
                 
         var trimmedFirstName = firstName.Trim();
         
         if (trimmedFirstName.Length > FirstNameMaxLength)    
-            return IdentityErrors.User.FirstNameTooLong(FirstNameMaxLength, trimmedFirstName.Length);
+            return UsersErrors.FirstNameTooLong(FirstNameMaxLength, trimmedFirstName.Length);
         
         if (string.IsNullOrWhiteSpace(lastName))
-            return IdentityErrors.User.LastNameEmpty;
+            return UsersErrors.LastNameEmpty;
                 
-        var trimmedLastName = firstName.Trim();
+        var trimmedLastName = lastName.Trim();
         
         if (lastName.Trim().Length > LastNameMaxLength)    
-            return IdentityErrors.User.LastNameTooLong(LastNameMaxLength, trimmedLastName.Length);
+            return UsersErrors.LastNameTooLong(LastNameMaxLength, trimmedLastName.Length);
         
         var emailResult = ValueObjects.Email.Create(email);
 
         if (emailResult.IsFailure)
             return emailResult.Error;
         
-        return new User { FirstName = firstName, LastName = lastName, Email = emailResult.Value.ToString(), UserName = emailResult.Value.ToString() };
+        return new User { FirstName = trimmedFirstName, LastName = trimmedLastName, Email = emailResult.Value.ToString(), UserName = emailResult.Value.ToString() };
     }
 }

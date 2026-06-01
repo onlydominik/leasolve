@@ -1,4 +1,4 @@
-using leasolve.Domain.Identity;
+using leasolve.Domain.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

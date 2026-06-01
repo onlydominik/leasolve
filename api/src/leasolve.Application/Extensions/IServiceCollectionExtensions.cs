@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace leasolve.Application.Extensions;
 
-public static class ServiceCollectionExtensions
+public static class IServiceCollectionExtensions
 {
     // TODO: At the moment, AddSettings is in Application,
     // we need to think about moving it to a higher layer so that the infra and API have access

@@ -1,4 +1,4 @@
-using leasolve.Domain.Identity;
+using leasolve.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

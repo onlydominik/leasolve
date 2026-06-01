@@ -1,4 +1,4 @@
-using leasolve.Domain.Identity;
+using leasolve.Domain.Users;
 using leasolve.Infrastructure.Database;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
