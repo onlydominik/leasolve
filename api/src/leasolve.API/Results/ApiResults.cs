@@ -12,6 +12,22 @@ public static class ApiResults
             throw new InvalidOperationException();
         }
 
+        if (result.Error is ValidationError validationError)
+        {
+            var validationProblem = new ValidationProblemDetails(
+                validationError.Errors.ToDictionary(kv => kv.Key, kv => kv.Value))
+            {
+                Title = validationError.Code,
+                Detail = validationError.Details,
+                Status = StatusCodes.Status400BadRequest
+            };
+
+            return new ObjectResult(validationProblem)
+            {
+                StatusCode = StatusCodes.Status400BadRequest
+            };
+        }
+        
         var statusCode = GetStatusCode(result.Error.Type);
         var problemDetails = new ProblemDetails
         {
@@ -31,18 +47,5 @@ public static class ApiResults
             ErrorType.Conflict => StatusCodes.Status409Conflict,
             _ => StatusCodes.Status500InternalServerError
         };
-
-        // static Dictionary<string, object>? GetErrors(Result result)
-        // {
-        //     if (result.Error is not ValidationError validationError)
-        //     {
-        //         return null;
-        //     }
-        //
-        //     return new Dictionary<string, object?>
-        //     {
-        //         { "errors", validationError.Errors } 
-        //     };
-        // }
     }
 }

@@ -1,12 +1,12 @@
 namespace leasolve.Domain.Abstractions;
 
-public sealed class Error
+public class Error
 {
     public ErrorType Type { get; }
     public string Code { get; }
     public string Details { get; }
 
-    private Error(ErrorType type, string code, string details)
+    protected Error(ErrorType type, string code, string details)
     {
         Type = type;
         Code = code;

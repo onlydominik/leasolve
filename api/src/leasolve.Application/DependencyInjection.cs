@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using leasolve.Application.Pipelines;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
@@ -10,6 +11,7 @@ public static class ApplicationServiceCollectionExtensions
     {
         services.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssemblyContaining<AssemblyMarker>();
+            cfg.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
         });
 
         services.AddValidatorsFromAssemblyContaining<AssemblyMarker>();
