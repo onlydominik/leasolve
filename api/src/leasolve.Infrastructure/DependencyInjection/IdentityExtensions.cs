@@ -1,5 +1,7 @@
+using leasolve.Application.Abstractions;
 using leasolve.Domain.Users;
 using leasolve.Infrastructure.Database;
+using leasolve.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +14,7 @@ internal static class IdentityExtensions
         services.AddIdentity<User, IdentityRole<long>>()
             .AddEntityFrameworkStores<DatabaseContext>();
 
+        services.AddScoped<IUserService, UserService>();
         return services;
     }
 }

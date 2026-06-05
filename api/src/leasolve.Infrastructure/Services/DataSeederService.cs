@@ -46,7 +46,7 @@ internal sealed class DataSeederService : IDataSeederService
             .Select(r => r.Name)
             .ToHashSet();
 
-        foreach (var role in Enum.GetValues<Roles>())
+        foreach (Roles role in Enum.GetValues<Roles>())
         {
             var roleName = role.ToString();
             if (!currentRoleNames.Contains(roleName))
@@ -69,8 +69,13 @@ internal sealed class DataSeederService : IDataSeederService
             throw new InvalidOperationException($"Failed to create admin user: {userResult.Error.Details}");
 
         var identityResult = await _userManager.CreateAsync(userResult.Value, _dataSeederSettings.AdminUser.Password!);
-        //TODO: add role
+        
         if (!identityResult.Succeeded)
             throw new InvalidOperationException($"Failed to create admin user: {identityResult.Errors.First().Description}");
+
+        var roleIdentityResult = await _userManager.AddToRoleAsync(userResult.Value, nameof(Roles.Admin));
+
+        if (!roleIdentityResult.Succeeded)
+            throw new InvalidOperationException($"Failed to add role for admin user: {roleIdentityResult.Errors.First().Description}");
     }
 }
