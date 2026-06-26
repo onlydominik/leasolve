@@ -1,0 +1,4 @@
+﻿variables:
+  azureServiceConnection: 'sc-azure-leasolve-students'
+  subscriptionId: '500e441f-2447-43a1-80ad-ebcc0404c170'
+  location: 'westeurope'

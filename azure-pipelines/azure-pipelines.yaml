@@ -1,0 +1,31 @@
+﻿trigger:
+  branches:
+    include:
+      - main
+      - feature/webapp-bicep-infra
+    
+  paths:
+    include:
+      - azure-infra
+      - azure-pipelines
+    
+pool: 
+  vmImage: ubuntu-latest
+  
+variables:
+  - template: variables/global.yaml
+
+stages:
+  
+  # Validate
+  - stage: ValidateInfrastructure
+    displayName: Validate infrastructure
+    jobs:
+      - template: jobs/validate-bicep.yaml
+
+  # Deploy
+  - stage: DeployInfrastructure
+    displayName: Deploy infrastructure
+    condition: succeeded()
+    jobs:
+      - template: jobs/deploy-bicep.yaml
