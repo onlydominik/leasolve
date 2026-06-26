@@ -16,4 +16,4 @@
 
 
 Successful Azure DevOps pipeline run
-![success-pipeline.png](assets/success-pipeline.png)
+![success-pipeline.jpg](assets/success-pipeline.jpg)
