@@ -1,0 +1,20 @@
+﻿jobs:
+  - job: DeployBicep
+    displayName: Deploy bicep
+    steps:
+      - checkout: self
+        sparseCheckoutDirectories: azure-infra
+
+      - task: BicepDeploy@0
+        displayName: Deploy
+        name: deployInfra
+        inputs:
+          scope: subscription
+          azureResourceManagerConnection: $(azureServiceConnection)
+          subscriptionId: $(subscriptionId)
+          location: $(location)
+          templateFile: azure-infra/main.bicep
+          parametersFile: azure-infra/main.bicepparam
+
+      - script: echo "WebApp URL $(deployInfra.webAppUrl)"
+        displayName: Output WebApp URL

@@ -1,0 +1,8 @@
+﻿jobs:
+  - job: ValidateBicep
+    displayName: Validate bicep file with build
+    steps:
+      - checkout: self
+        sparseCheckoutDirectories: azure-infra
+      - script: az bicep build --file azure-infra/main.bicep
+        displayName: Build

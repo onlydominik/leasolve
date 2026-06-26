@@ -38,3 +38,6 @@ api/src/leasolve.API/appsettings.Development.json
 
 # Copilot
 **/.github/copilot-instructions.md
+
+# Azure
+azure-infra/main.json
