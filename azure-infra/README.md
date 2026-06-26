@@ -13,3 +13,7 @@
 - trigger limited to changes in the azure-infra and azure-pipelines folders
 - validation stage before deploy - bicep build
 - for multi-env / prod, azure-pipelines variables would be better in AZ DevOps variable groups 
+
+
+Successful Azure DevOps pipeline run
+![success-pipeline.png](assets/success-pipeline.png)
